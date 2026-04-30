@@ -1,4 +1,6 @@
 ru:
+  pundit:
+    not_authorized: "Доступ запрещён."
   activerecord:
     errors:
       models:

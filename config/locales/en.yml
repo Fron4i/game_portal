@@ -1,4 +1,6 @@
 en:
+  pundit:
+    not_authorized: "Access denied."
   activerecord:
     errors:
       models:
