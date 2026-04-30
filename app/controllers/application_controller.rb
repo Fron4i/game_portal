@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+  include Pagy::Backend
 
   allow_browser versions: :modern
 
@@ -10,6 +11,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, unless: -> { action_name == "index" || skip_pundit? }
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   protected
 
@@ -27,5 +29,9 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = t("pundit.not_authorized")
     redirect_to(user_signed_in? ? "/" : new_user_session_path)
+  end
+
+  def record_not_found
+    render plain: "Not found", status: :not_found
   end
 end

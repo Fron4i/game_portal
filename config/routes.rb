@@ -7,6 +7,13 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/admin/sidekiq"
   end
 
+  root "home#index"
+
+  resources :games, only: [:index, :show], param: :slug
+  resources :posts, only: [:show], param: :slug
+
+  get "/feed", to: "feed#index", as: :feed
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   if Rails.env.development?
