@@ -8,6 +8,6 @@ class GamesController < ApplicationController
   def show
     @game = Game.friendly.find(params[:slug])
     authorize @game
-    @pagy, @posts = pagy(@game.posts.published.includes(:author).order(published_at: :desc))
+    @pagy, @posts = pagy(@game.posts.published.includes(:author, :rich_text_body).order(published_at: :desc))
   end
 end
