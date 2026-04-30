@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   delete "/likes", to: "likes#destroy"
 
   get "/feed", to: "feed#index", as: :feed
+  get "/profile", to: "profile#show", as: :profile
 
   get "up" => "rails/health#show", as: :rails_health_check
 
