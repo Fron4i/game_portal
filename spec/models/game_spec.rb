@@ -22,10 +22,12 @@ RSpec.describe Game, type: :model do
       expect(Game.released).to contain_exactly(released)
     end
 
-    it '.latest сортирует по released_at desc' do
-      old = create(:game, released_at: 2.months.ago)
-      fresh = create(:game, released_at: 1.day.ago)
-      expect(Game.latest.first(2)).to eq([fresh, old])
+    it '.latest сортирует released-свежие, потом upcoming, потом без даты' do
+      old_released = create(:game, released_at: 2.months.ago)
+      fresh_released = create(:game, released_at: 1.day.ago)
+      upcoming = create(:game, released_at: 1.month.from_now)
+      undated = create(:game, released_at: nil)
+      expect(Game.latest.to_a).to eq([fresh_released, old_released, upcoming, undated])
     end
   end
 
