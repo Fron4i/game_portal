@@ -1,7 +1,11 @@
 <%
   size ||= :md
   href ||= "/"
-  text_size = { sm: "text-lg", md: "text-2xl", lg: "text-4xl" }.fetch(size)
+  text_size = {
+    sm: "text-base md:text-lg",
+    md: "text-xl md:text-2xl",
+    lg: "text-3xl md:text-4xl"
+  }.fetch(size)
 %>
 <%= link_to href, class: "inline-flex items-baseline gap-0 font-display font-semibold text-text #{text_size}" do %>
   <span class="text-brand">i</span><span>Webix</span>

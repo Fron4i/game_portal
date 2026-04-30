@@ -3,7 +3,7 @@
 <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
   <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
     <div class="space-y-1">
-      <h1 class="font-display text-4xl font-semibold"><%= t("iwebix.profile.title") %></h1>
+      <h1 class="font-display text-3xl md:text-4xl font-semibold"><%= t("iwebix.profile.title") %></h1>
       <p class="text-text-muted">
         <span class="text-text font-medium"><%= current_user.name.presence || current_user.email %></span>
         <% if current_user.name.present? %>
