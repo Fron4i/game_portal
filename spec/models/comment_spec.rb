@@ -13,4 +13,12 @@ RSpec.describe Comment, type: :model do
     it { is_expected.to belong_to(:post) }
     it { is_expected.to have_many(:likes) }
   end
+
+  describe 'скоупы' do
+    it '.recent — новые комменты первыми' do
+      old = create(:comment, created_at: 2.days.ago)
+      fresh = create(:comment, created_at: 1.hour.ago)
+      expect(Comment.recent.first(2)).to eq([fresh, old])
+    end
+  end
 end
