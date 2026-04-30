@@ -4,7 +4,7 @@ class PostSerializer
   attributes :title, :slug, :kind, :published_at
 
   attribute :body_html do |post|
-    post.body.to_s
+    post.body.to_s.gsub(/<!--.*?-->/m, "").strip
   end
 
   attribute :likes_count do |post|
