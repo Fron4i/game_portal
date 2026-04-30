@@ -11,6 +11,9 @@ ru:
               too_big: "не должна превышать 5 МБ"
   iwebix:
     tagline: "Каждое обновление — новая глава"
+    flash:
+      notice: "Готово."
+      alert: "Не удалось."
     pagination:
       aria_label: "Постраничная навигация"
     layout:

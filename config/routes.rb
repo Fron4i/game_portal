@@ -9,8 +9,17 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :games, only: [:index, :show], param: :slug
-  resources :posts, only: [:show], param: :slug
+  resources :games, only: [:index, :show], param: :slug do
+    post "subscriptions", to: "subscriptions#create", on: :member, as: :subscriptions
+    delete "subscriptions", to: "subscriptions#destroy", on: :member
+  end
+
+  resources :posts, only: [:show], param: :slug do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  post "/likes", to: "likes#create"
+  delete "/likes", to: "likes#destroy"
 
   get "/feed", to: "feed#index", as: :feed
 

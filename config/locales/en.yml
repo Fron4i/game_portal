@@ -11,6 +11,9 @@ en:
               too_big: "must be 5 MB or smaller"
   iwebix:
     tagline: "Every update is a new chapter"
+    flash:
+      notice: "Done."
+      alert: "Failed."
     pagination:
       aria_label: "Pagination"
     layout:
