@@ -23,6 +23,13 @@ en:
       empty:
         title: "Nothing here yet"
         subtitle: "The studio hasn't published any posts — check back later."
+    feed:
+      title: "My feed"
+      subtitle: "Posts from games you subscribed to."
+      empty:
+        title: "Your feed is empty"
+        subtitle: "Subscribe to a game — its announcements and updates will appear here."
+        cta: "Browse games"
     posts:
       card:
         no_cover: "no cover"
