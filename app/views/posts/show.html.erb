@@ -7,11 +7,10 @@
         [@post.title,                   nil]
       ] %>
 
-  <%= link_to back_path,
-        class: "inline-flex items-center gap-1 text-sm text-text-muted hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" do %>
-    <span aria-hidden="true">←</span>
-    <%= t("iwebix.layout.back") %>
-  <% end %>
+  <%= render "shared/button",
+        label: "← #{t('iwebix.layout.back')}",
+        variant: :ghost, size: :sm, as: :link_to,
+        href: back_path %>
 
   <article class="space-y-6">
     <header class="space-y-4">
