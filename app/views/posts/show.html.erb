@@ -51,11 +51,11 @@
   </article>
 
   <section class="space-y-6">
-    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2">
-      <%= t("iwebix.comments.title", count: @post.comments.size) %>
-    </h2>
-
     <%= turbo_frame_tag dom_id(@post, :comments) do %>
+      <h2 class="font-display text-2xl font-semibold border-b border-border pb-2">
+        <%= t("iwebix.comments.title", count: @post.comments.size) %>
+      </h2>
+
       <div class="space-y-6">
         <%= render "comments/form", post: @post, comment: Comment.new %>
         <%= render "comments/list", comments: @comments, pagy: @pagy %>

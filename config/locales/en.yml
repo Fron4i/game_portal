@@ -122,6 +122,9 @@ en:
       aria_label_guest: "Sign in to like"
     pagination:
       aria_label: "Pagination"
+      prev: "Previous page"
+      next: "Next page"
+      page: "Page %{page}"
     layout:
       skip_to_content: "Skip to content"
       primary_nav: "Primary navigation"

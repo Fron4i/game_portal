@@ -1,8 +1,46 @@
-<%
-  pagy = local_assigns[:pagy]
-%>
+<% pagy = local_assigns[:pagy] %>
+
 <% if pagy && pagy.pages > 1 %>
-  <nav aria-label="<%= t('iwebix.pagination.aria_label') %>" class="flex items-center justify-center gap-1 mt-8 text-sm font-mono">
-    <%== pagy_nav(pagy) %>
+  <%
+    btn      = "h-9 inline-flex items-center justify-center rounded-md border border-border transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+    arrow    = "#{btn} px-3 text-text-muted hover:bg-surface-2 hover:text-text"
+    arrow_off = "#{btn} px-3 text-text-muted opacity-50 cursor-not-allowed"
+    page_btn = "#{btn} w-9 text-text hover:bg-surface-2"
+    active   = "#{btn} w-9 bg-brand text-white border-brand"
+    gap      = "h-9 px-2 inline-flex items-center text-text-muted"
+  %>
+
+  <nav aria-label="<%= t('iwebix.pagination.aria_label') %>"
+       class="flex flex-wrap items-center justify-center gap-1 mt-8 text-sm font-mono">
+    <% if pagy.prev %>
+      <%= link_to "‹", pagy_url_for(pagy, pagy.prev),
+            class: arrow,
+            "aria-label": t("iwebix.pagination.prev"),
+            rel: "prev" %>
+    <% else %>
+      <span class="<%= arrow_off %>" aria-disabled="true" aria-label="<%= t('iwebix.pagination.prev') %>">‹</span>
+    <% end %>
+
+    <% pagy.series.each do |item| %>
+      <% case item %>
+      <% when Integer %>
+        <%= link_to item, pagy_url_for(pagy, item),
+              class: page_btn,
+              "aria-label": t("iwebix.pagination.page", page: item) %>
+      <% when String %>
+        <span class="<%= active %>" aria-current="page"><%= item %></span>
+      <% when :gap %>
+        <span class="<%= gap %>" aria-hidden="true">…</span>
+      <% end %>
+    <% end %>
+
+    <% if pagy.next %>
+      <%= link_to "›", pagy_url_for(pagy, pagy.next),
+            class: arrow,
+            "aria-label": t("iwebix.pagination.next"),
+            rel: "next" %>
+    <% else %>
+      <span class="<%= arrow_off %>" aria-disabled="true" aria-label="<%= t('iwebix.pagination.next') %>">›</span>
+    <% end %>
   </nav>
 <% end %>

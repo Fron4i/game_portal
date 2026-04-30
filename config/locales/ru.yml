@@ -126,6 +126,9 @@ ru:
       aria_label_guest: "Войдите, чтобы поставить лайк"
     pagination:
       aria_label: "Постраничная навигация"
+      prev: "Предыдущая страница"
+      next: "Следующая страница"
+      page: "Страница %{page}"
     layout:
       skip_to_content: "Перейти к содержимому"
       primary_nav: "Основная навигация"
