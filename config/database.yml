@@ -1,0 +1,23 @@
+<%
+  require "uri"
+  default_url = "postgres://game_portal:@localhost:5432/game_portal_development"
+  dev_uri = URI.parse(ENV.fetch("DATABASE_URL", default_url))
+  test_uri = dev_uri.dup
+  test_uri.path = "/" + ENV.fetch("TEST_DATABASE_NAME", "game_portal_test")
+%>
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  url: <%= dev_uri %>
+
+test:
+  <<: *default
+  url: <%= test_uri %>
+
+production:
+  <<: *default
+  url: <%= ENV.fetch("DATABASE_URL", nil) %>
