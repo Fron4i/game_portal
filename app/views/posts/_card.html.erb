@@ -31,6 +31,8 @@
     </p>
 
     <p class="text-xs font-mono text-text-muted">
+      <%= post.author&.name.presence || post.author&.email || t("iwebix.posts.show.deleted_author") %>
+      ·
       <%= l post.published_at.to_date, format: :short_date %>
     </p>
   </div>
