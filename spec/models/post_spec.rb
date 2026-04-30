@@ -10,12 +10,12 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'enum kind' do
-    it { is_expected.to define_enum_for(:kind).with_values(announcement: 0, update: 1) }
+    it { is_expected.to define_enum_for(:kind).with_values(announcement: 0, update: 1).with_prefix(:kind) }
   end
 
   describe 'ассоциации' do
     it { is_expected.to belong_to(:game) }
-    it { is_expected.to belong_to(:author).class_name('User') }
+    it { is_expected.to belong_to(:author).class_name('User').optional }
     it { is_expected.to have_many(:comments) }
     it { is_expected.to have_many(:likes) }
   end
