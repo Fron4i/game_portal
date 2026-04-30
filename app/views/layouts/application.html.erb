@@ -23,7 +23,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-full bg-surface text-text font-sans antialiased">
-    <%= yield %>
+  <body class="min-h-full bg-surface text-text font-sans antialiased flex flex-col">
+    <a href="#main"
+       class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-brand focus:text-white focus:rounded-md focus:px-4 focus:py-2 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface">
+      <%= t('iwebix.layout.skip_to_content') %>
+    </a>
+
+    <%= render "shared/header" %>
+
+    <main id="main" class="flex-1">
+      <%= yield %>
+    </main>
+
+    <%= render "shared/footer" %>
   </body>
 </html>

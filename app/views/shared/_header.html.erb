@@ -1,0 +1,46 @@
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur border-b border-border"
+        data-controller="mobile-menu">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <button type="button"
+              class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md text-text-muted hover:text-text hover:bg-surface-2 transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              data-mobile-menu-target="trigger"
+              data-action="click->mobile-menu#toggle"
+              aria-controls="mobile-nav"
+              aria-expanded="false"
+              aria-label="<%= t('iwebix.layout.toggle_menu') %>">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+      <%= render "shared/logo", size: :md %>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-1"
+         aria-label="<%= t('iwebix.layout.primary_nav') %>">
+      <%= nav_link_to t('iwebix.layout.nav.home'),  "/" %>
+      <%= nav_link_to t('iwebix.layout.nav.games'), "/games" %>
+      <% if current_user %>
+        <%= nav_link_to t('iwebix.layout.nav.feed'), "/feed" %>
+      <% end %>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <%= render "shared/locale_switcher" %>
+      <%= render "shared/user_menu" %>
+    </div>
+  </div>
+
+  <div id="mobile-nav"
+       class="hidden md:hidden border-t border-border bg-surface-2"
+       data-mobile-menu-target="panel">
+    <nav class="px-4 py-4 flex flex-col gap-1"
+         aria-label="<%= t('iwebix.layout.primary_nav') %>">
+      <%= nav_link_to t('iwebix.layout.nav.home'),  "/" %>
+      <%= nav_link_to t('iwebix.layout.nav.games'), "/games" %>
+      <% if current_user %>
+        <%= nav_link_to t('iwebix.layout.nav.feed'), "/feed" %>
+      <% end %>
+    </nav>
+  </div>
+</header>

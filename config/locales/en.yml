@@ -3,6 +3,25 @@ en:
     tagline: "Every update is a new chapter"
     pagination:
       aria_label: "Pagination"
+    layout:
+      skip_to_content: "Skip to content"
+      primary_nav: "Primary navigation"
+      footer_nav: "Information"
+      toggle_menu: "Open menu"
+      locale_switcher: "Language switcher"
+      sign_in: "Sign in"
+      nav:
+        home:  "Home"
+        games: "Games"
+        feed:  "My feed"
+      user_menu:
+        profile:  "Profile"
+        sign_out: "Sign out"
+      footer:
+        about:     "About"
+        contacts:  "Contacts"
+        terms:     "Terms"
+        copyright: "© %{year} iWebix. All rights reserved."
     styleguide:
       title: "iWebix Design System"
       sections:

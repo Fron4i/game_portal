@@ -1,0 +1,19 @@
+<footer class="border-t border-border bg-surface mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+    <div class="space-y-2">
+      <%= render "shared/logo", size: :sm %>
+      <p class="text-text-muted"><%= t('iwebix.tagline') %></p>
+    </div>
+
+    <nav class="flex flex-col gap-2 text-text-muted"
+         aria-label="<%= t('iwebix.layout.footer_nav') %>">
+      <%= link_to t('iwebix.layout.footer.about'),    "#", class: "hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" %>
+      <%= link_to t('iwebix.layout.footer.contacts'), "#", class: "hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" %>
+      <%= link_to t('iwebix.layout.footer.terms'),    "#", class: "hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" %>
+    </nav>
+
+    <p class="md:text-right text-text-muted">
+      <%= t('iwebix.layout.footer.copyright', year: Date.current.year) %>
+    </p>
+  </div>
+</footer>

@@ -3,6 +3,25 @@ ru:
     tagline: "Каждое обновление — новая глава"
     pagination:
       aria_label: "Постраничная навигация"
+    layout:
+      skip_to_content: "Перейти к содержимому"
+      primary_nav: "Основная навигация"
+      footer_nav: "Информация"
+      toggle_menu: "Открыть меню"
+      locale_switcher: "Переключатель языка"
+      sign_in: "Войти"
+      nav:
+        home:  "Главная"
+        games: "Игры"
+        feed:  "Моя лента"
+      user_menu:
+        profile:  "Профиль"
+        sign_out: "Выйти"
+      footer:
+        about:     "О студии"
+        contacts:  "Контакты"
+        terms:     "Условия"
+        copyright: "© %{year} iWebix. Все права защищены."
     styleguide:
       title: "Дизайн-система iWebix"
       sections:
