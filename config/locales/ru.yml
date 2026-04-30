@@ -63,6 +63,10 @@ ru:
           announcement: "анонс"
           update: "обновление"
     games:
+      index:
+        title: "Игры"
+        subtitle: "Все игры студии iWebix."
+        empty: "Студия пока не выпустила ни одной игры."
       show:
         no_cover: "без обложки"
         released_at: "релиз %{date}"

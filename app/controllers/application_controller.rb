@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   stale_when_importmap_changes
 
+  before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   after_action :verify_authorized, unless: -> { action_name == "index" || skip_pundit? }
@@ -21,6 +22,19 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_locale
+    requested = params[:locale]&.to_sym
+    chosen    = if I18n.available_locales.include?(requested)
+                  requested
+                elsif I18n.available_locales.include?(session[:locale]&.to_sym)
+                  session[:locale].to_sym
+                else
+                  I18n.default_locale
+                end
+    I18n.locale = chosen
+    session[:locale] = chosen.to_s
+  end
 
   def skip_pundit?
     devise_controller? || is_a?(Rails::HealthController)

@@ -43,5 +43,7 @@ module GamePortalBackend
 
     config.i18n.default_locale = :ru
     config.i18n.available_locales = [:ru, :en]
+    config.i18n.fallbacks = [:ru]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.yml")]
   end
 end

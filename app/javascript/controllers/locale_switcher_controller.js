@@ -9,4 +9,12 @@ export default class extends Controller {
     url.searchParams.set("locale", locale)
     window.location.assign(url.toString())
   }
+
+  connect() {
+    const url = new URL(window.location.href)
+    if (url.searchParams.has("locale")) {
+      url.searchParams.delete("locale")
+      window.history.replaceState({}, "", url.toString())
+    }
+  }
 }

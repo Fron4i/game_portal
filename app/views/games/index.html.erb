@@ -1,9 +1,20 @@
-<h1>Игры</h1>
+<% content_for(:title, t("iwebix.games.index.title")) %>
 
-<ul>
-  <% @games.each do |game| %>
-    <li><%= link_to game.title, game_path(game) %></li>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+  <header class="space-y-2">
+    <h1 class="font-display text-4xl font-semibold"><%= t("iwebix.games.index.title") %></h1>
+    <p class="text-text-muted"><%= t("iwebix.games.index.subtitle") %></p>
+  </header>
+
+  <% if @games.any? %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <% @games.each do |game| %>
+        <%= render "games/card_compact", game: game %>
+      <% end %>
+    </div>
+
+    <%= render "shared/pagination", pagy: @pagy %>
+  <% else %>
+    <p class="text-text-muted"><%= t("iwebix.games.index.empty") %></p>
   <% end %>
-</ul>
-
-<%= pagy_nav(@pagy) if @pagy.pages > 1 %>
+</div>

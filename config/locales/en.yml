@@ -49,6 +49,10 @@ en:
           announcement: "announcement"
           update: "update"
     games:
+      index:
+        title: "Games"
+        subtitle: "All games by iWebix studio."
+        empty: "The studio has no games yet."
       show:
         no_cover: "no cover"
         released_at: "released %{date}"
