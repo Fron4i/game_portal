@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 8.1.3"
-gem "propshaft"
+gem "sprockets-rails"
+gem "dartsass-sprockets"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
@@ -19,7 +20,7 @@ gem "redis", "~> 5"
 gem "friendly_id", "~> 5.5"
 gem "pagy", "~> 9.0"
 gem "jsonapi-serializer"
-gem "activeadmin"
+gem "activeadmin", "~> 3.5"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"

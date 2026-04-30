@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  def authenticate_admin!
+    authenticate_user!
+    return if current_user&.admin?
+
+    redirect_to root_path, alert: t("pundit.not_authorized")
+  end
+
   private
 
   def set_locale
@@ -37,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def skip_pundit?
-    devise_controller? || is_a?(Rails::HealthController)
+    devise_controller? || is_a?(Rails::HealthController) || is_a?(ActiveAdmin::BaseController)
   end
 
   def user_not_authorized
