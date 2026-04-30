@@ -1,6 +1,9 @@
 en:
   pundit:
     not_authorized: "Access denied."
+  date:
+    formats:
+      short_date: "%b %-d, %Y"
   activerecord:
     errors:
       models:
@@ -14,6 +17,18 @@ en:
     flash:
       notice: "Done."
       alert: "Failed."
+    home:
+      title: "iWebix feed"
+      subtitle: "Latest announcements and updates across all studio games."
+      empty:
+        title: "Nothing here yet"
+        subtitle: "The studio hasn't published any posts — check back later."
+    posts:
+      card:
+        no_cover: "no cover"
+        kinds:
+          announcement: "announcement"
+          update: "update"
     pagination:
       aria_label: "Pagination"
     layout:

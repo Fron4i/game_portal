@@ -1,0 +1,37 @@
+<% game = post.game %>
+<article class="group relative bg-surface-2 border border-border rounded-2xl overflow-hidden flex flex-col transition-colors duration-150 ease-out hover:bg-surface-3">
+  <%= link_to post_path(post), class: "block aspect-[16/9] bg-surface-3 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface", "aria-label": post.title do %>
+    <% if game.cover.attached? %>
+      <%= image_tag game.cover.variant(resize_to_fill: [800, 450]),
+            alt: game.title,
+            loading: "lazy",
+            class: "w-full h-full object-cover" %>
+    <% else %>
+      <div class="w-full h-full flex items-center justify-center text-text-muted font-mono text-xs uppercase tracking-wide">
+        <%= t("iwebix.posts.card.no_cover") %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="flex-1 p-5 flex flex-col gap-3">
+    <%= render "shared/badge",
+          variant: post.kind.to_sym,
+          label: t("iwebix.posts.card.kinds.#{post.kind}") %>
+
+    <h3 class="font-display text-xl font-semibold leading-snug">
+      <%= link_to post.title, post_path(post),
+            class: "focus:outline-none focus-visible:underline group-hover:text-brand transition-colors duration-150 ease-out" %>
+    </h3>
+
+    <%= link_to game.title, game_path(game),
+          class: "text-sm text-text-muted hover:text-text focus:outline-none focus-visible:underline" %>
+
+    <p class="text-text-muted text-sm leading-relaxed flex-1">
+      <%= post.body.to_plain_text.truncate(200) %>
+    </p>
+
+    <p class="text-xs font-mono text-text-muted">
+      <%= l post.published_at.to_date, format: :short_date %>
+    </p>
+  </div>
+</article>

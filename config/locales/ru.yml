@@ -1,6 +1,23 @@
 ru:
   pundit:
     not_authorized: "Доступ запрещён."
+  date:
+    formats:
+      short_date: "%-d %b %Y"
+    abbr_month_names:
+      - ~
+      - янв
+      - фев
+      - мар
+      - апр
+      - мая
+      - июн
+      - июл
+      - авг
+      - сен
+      - окт
+      - ноя
+      - дек
   activerecord:
     errors:
       models:
@@ -14,6 +31,18 @@ ru:
     flash:
       notice: "Готово."
       alert: "Не удалось."
+    home:
+      title: "Лента iWebix"
+      subtitle: "Свежие анонсы и обновления всех игр студии."
+      empty:
+        title: "Скоро тут появятся новости"
+        subtitle: "Студия ещё не выпустила ни одного поста — загляните позже."
+    posts:
+      card:
+        no_cover: "без обложки"
+        kinds:
+          announcement: "анонс"
+          update: "обновление"
     pagination:
       aria_label: "Постраничная навигация"
     layout:

@@ -1,9 +1,23 @@
-<h1>iWebix</h1>
+<% content_for(:title, t("iwebix.home.title")) %>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.title %></li>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+  <header class="space-y-2">
+    <h1 class="font-display text-4xl font-semibold"><%= t("iwebix.home.title") %></h1>
+    <p class="text-text-muted"><%= t("iwebix.home.subtitle") %></p>
+  </header>
+
+  <% if @posts.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @posts.each do |post| %>
+        <%= render "posts/card", post: post %>
+      <% end %>
+    </div>
+
+    <%= render "shared/pagination", pagy: @pagy %>
+  <% else %>
+    <div class="rounded-2xl border border-border bg-surface-2 px-6 py-16 text-center space-y-2">
+      <p class="font-display text-2xl font-semibold"><%= t("iwebix.home.empty.title") %></p>
+      <p class="text-text-muted"><%= t("iwebix.home.empty.subtitle") %></p>
+    </div>
   <% end %>
-</ul>
-
-<%= pagy_nav(@pagy) if @pagy.pages > 1 %>
+</div>
