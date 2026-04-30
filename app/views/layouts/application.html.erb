@@ -31,6 +31,12 @@
 
     <%= render "shared/header" %>
 
+    <% if flash.any? %>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
+        <%= render "shared/flash" %>
+      </div>
+    <% end %>
+
     <main id="main" class="flex-1">
       <%= yield %>
     </main>

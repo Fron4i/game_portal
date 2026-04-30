@@ -1,0 +1,27 @@
+<% content_for(:title, t("iwebix.auth.confirmation.title")) %>
+
+<div class="max-w-md mx-auto px-4 py-12 space-y-6">
+  <header class="space-y-1">
+    <h1 class="font-display text-3xl font-semibold"><%= t("iwebix.auth.confirmation.title") %></h1>
+    <p class="text-text-muted text-sm"><%= t("iwebix.auth.confirmation.subtitle") %></p>
+  </header>
+
+
+  <%= render layout: "shared/card" do %>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+      <%= render "shared/form_errors", resource: resource %>
+
+      <%= render "shared/input",
+            id: "user_email", name: "user[email]", type: "email",
+            value: resource.email, label: t("iwebix.auth.fields.email"),
+            placeholder: t("iwebix.auth.fields.email_placeholder") %>
+
+      <%= render "shared/button",
+            label: t("iwebix.auth.confirmation.submit"),
+            variant: :primary, size: :md, as: :button, type: "submit",
+            class: "w-full" %>
+    <% end %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

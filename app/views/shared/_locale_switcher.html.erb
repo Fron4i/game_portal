@@ -4,12 +4,10 @@
      data-controller="locale-switcher">
   <% I18n.available_locales.each do |code| %>
     <% active = I18n.locale == code %>
-    <button type="button"
-            data-action="click->locale-switcher#switch"
-            data-locale-switcher-locale-param="<%= code %>"
-            <%= 'aria-current="true"'.html_safe if active %>
-            class="px-2.5 h-8 text-xs font-mono uppercase tracking-wide transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface <%= active ? 'bg-surface-2 text-text' : 'text-text-muted hover:bg-surface-2 hover:text-text' %>">
-      <%= code %>
-    </button>
+    <%= tag.button code,
+          type: "button",
+          class: "px-2.5 h-8 text-xs font-mono uppercase tracking-wide transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface #{active ? 'bg-surface-2 text-text' : 'text-text-muted hover:bg-surface-2 hover:text-text'}",
+          data: { action: "click->locale-switcher#switch", "locale-switcher-locale-param": code },
+          aria: (active ? { current: "true" } : {}) %>
   <% end %>
 </div>

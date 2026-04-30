@@ -79,3 +79,56 @@ en:
         default: "Default"
         focused: "Focused"
         disabled: "Disabled"
+    auth:
+      errors_title:
+        one: "%{count} error blocked saving:"
+        other: "%{count} errors blocked saving:"
+      fields:
+        email: "Email"
+        email_placeholder: "you@iwebix.com"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        password_hint: "At least %{minimum} characters."
+        name: "Name"
+        name_hint: "How we should address you. Between 2 and 40 characters."
+      sign_in:
+        title: "Sign in"
+        subtitle: "Sign in to comment, like and subscribe to games."
+        submit: "Sign in"
+        submitting: "Signing in…"
+        remember_me: "Remember me"
+      sign_up:
+        title: "Sign up"
+        subtitle: "Free account. We'll send a confirmation email."
+        submit: "Create account"
+      edit_profile:
+        title: "Account settings"
+        new_password: "New password"
+        new_password_confirmation: "New password confirmation"
+        current_password: "Current password"
+        current_password_hint: "Confirm with your current password to save changes."
+        pending_email: "New email pending confirmation: %{email}"
+        submit: "Save"
+        delete_title: "Delete account"
+        delete_warning: "This action is irreversible. All your comments, likes and subscriptions will be gone."
+        delete_button: "Delete account"
+        delete_confirm: "Delete account permanently?"
+      forgot_password:
+        title: "Reset password"
+        subtitle: "Enter your email — we'll send a reset link."
+        submit: "Send link"
+      reset_password:
+        title: "New password"
+        subtitle: "Set a new password and sign in again."
+        new_password: "New password"
+        new_password_confirmation: "New password confirmation"
+        submit: "Set password"
+      confirmation:
+        title: "Confirmation email"
+        subtitle: "Didn't get the email? Enter your email and we'll resend it."
+        submit: "Resend"
+      links:
+        sign_in: "Already registered? Sign in"
+        sign_up: "No account? Sign up"
+        forgot_password: "Forgot your password?"
+        resend_confirmation: "Didn't get the confirmation email?"

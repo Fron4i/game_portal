@@ -29,7 +29,7 @@
 <% if as == :button_to %>
   <%= button_to href, method: method || :post, class: classes, data: data, disabled: disabled do %><%= label %><% end %>
 <% elsif as == :button %>
-  <button type="button" class="<%= classes %>" <%= "disabled" if disabled %> <%= data.map { |k, v| "data-#{k.to_s.dasherize}=\"#{v}\"" }.join(" ").html_safe %>><%= label %></button>
+  <%= tag.button label, type: (local_assigns[:type] || "button"), class: classes, disabled: disabled, data: data %>
 <% else %>
   <%= link_to href, class: classes, data: data do %><%= label %><% end %>
 <% end %>

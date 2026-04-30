@@ -79,3 +79,58 @@ ru:
         default: "Обычное"
         focused: "В фокусе"
         disabled: "Недоступно"
+    auth:
+      errors_title:
+        one: "%{count} ошибка не дала сохранить:"
+        few: "%{count} ошибки не дали сохранить:"
+        many: "%{count} ошибок не дали сохранить:"
+        other: "%{count} ошибок не дали сохранить:"
+      fields:
+        email: "Email"
+        email_placeholder: "you@iwebix.ru"
+        password: "Пароль"
+        password_confirmation: "Повтор пароля"
+        password_hint: "Минимум %{minimum} символов."
+        name: "Имя"
+        name_hint: "Как к вам обращаться. От 2 до 40 символов."
+      sign_in:
+        title: "Вход"
+        subtitle: "Войдите, чтобы комментировать, лайкать и подписываться на игры."
+        submit: "Войти"
+        submitting: "Входим…"
+        remember_me: "Запомнить меня"
+      sign_up:
+        title: "Регистрация"
+        subtitle: "Бесплатный аккаунт. На email придёт письмо подтверждения."
+        submit: "Создать аккаунт"
+      edit_profile:
+        title: "Настройки аккаунта"
+        new_password: "Новый пароль"
+        new_password_confirmation: "Повтор нового пароля"
+        current_password: "Текущий пароль"
+        current_password_hint: "Подтвердите текущим паролем, чтобы сохранить изменения."
+        pending_email: "Ждёт подтверждения новый email: %{email}"
+        submit: "Сохранить"
+        delete_title: "Удаление аккаунта"
+        delete_warning: "Действие необратимо. Все ваши комменты, лайки и подписки исчезнут."
+        delete_button: "Удалить аккаунт"
+        delete_confirm: "Удалить аккаунт без возможности восстановления?"
+      forgot_password:
+        title: "Восстановление пароля"
+        subtitle: "Укажите email — пришлём ссылку для сброса пароля."
+        submit: "Отправить ссылку"
+      reset_password:
+        title: "Новый пароль"
+        subtitle: "Установите новый пароль и войдите снова."
+        new_password: "Новый пароль"
+        new_password_confirmation: "Повтор нового пароля"
+        submit: "Установить пароль"
+      confirmation:
+        title: "Письмо подтверждения"
+        subtitle: "Не пришло письмо? Укажите email — отправим ещё раз."
+        submit: "Отправить ещё раз"
+      links:
+        sign_in: "Уже зарегистрированы? Войти"
+        sign_up: "Нет аккаунта? Зарегистрироваться"
+        forgot_password: "Забыли пароль?"
+        resend_confirmation: "Письмо подтверждения не пришло?"
