@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def index
-    @pagy, @games = pagy(policy_scope(Game).released.latest)
+    @pagy, @games = pagy(policy_scope(Game).latest)
   end
 
   def show

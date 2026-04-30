@@ -17,7 +17,7 @@ class Game < ApplicationRecord
   validate :acceptable_cover
 
   scope :released, -> { where(arel_table[:released_at].lteq(Time.current)) }
-  scope :latest, -> { order(released_at: :desc) }
+  scope :latest, -> { order(Arel.sql("released_at DESC NULLS LAST, created_at DESC")) }
 
   def subscribed_by?(user)
     return false if user.blank?
