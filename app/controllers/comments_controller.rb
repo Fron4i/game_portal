@@ -6,18 +6,15 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params.merge(user: current_user))
     authorize @comment
 
-    if @comment.save
-      redirect_to post_path(@post), notice: t("iwebix.flash.notice")
-    else
-      redirect_to post_path(@post), alert: t("iwebix.flash.alert")
-    end
+    @comment.save
+    redirect_to post_path(@post)
   end
 
   def destroy
     @comment = @post.comments.find(params[:id])
     authorize @comment
     @comment.destroy
-    redirect_to post_path(@post), notice: t("iwebix.flash.notice")
+    redirect_to post_path(@post)
   end
 
   private
