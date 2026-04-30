@@ -24,4 +24,12 @@ class Post < ApplicationRecord
   def published?
     published_at.present? && published_at <= Time.current
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id title slug kind published_at game_id author_id created_at updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[game author comments likes]
+  end
 end

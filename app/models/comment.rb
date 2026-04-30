@@ -7,4 +7,12 @@ class Comment < ApplicationRecord
   validates :body, presence: true, length: { in: 2..2000 }
 
   scope :chronological, -> { order(created_at: :asc) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id body user_id post_id created_at updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[user post likes]
+  end
 end

@@ -25,4 +25,12 @@ class User < ApplicationRecord
 
     subscriptions.exists?(game_id: game.id)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id email name role blocked confirmed_at created_at updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[posts comments likes subscriptions subscribed_games]
+  end
 end

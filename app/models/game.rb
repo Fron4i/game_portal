@@ -25,6 +25,14 @@ class Game < ApplicationRecord
     subscriptions.exists?(user_id: user.id)
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[id title slug description released_at created_at updated_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[posts subscriptions subscribers]
+  end
+
   private
 
   def acceptable_cover
