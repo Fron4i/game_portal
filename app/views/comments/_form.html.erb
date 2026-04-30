@@ -1,0 +1,29 @@
+<% if current_user %>
+  <%= form_with model: [post, comment],
+        url: post_comments_path(post),
+        data: { test: "comment-form" },
+        class: "space-y-3" do |f| %>
+    <%= render "shared/form_errors", resource: comment %>
+
+    <%= f.label :body, t("iwebix.comments.body_label"), class: "sr-only" %>
+    <%= f.text_area :body,
+          rows: 3,
+          required: true,
+          placeholder: t("iwebix.comments.placeholder"),
+          class: "w-full px-3 py-2 rounded-md bg-surface-2 border border-border text-text placeholder:text-text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface" %>
+
+    <div class="flex justify-end">
+      <%= render "shared/button",
+            label: t("iwebix.comments.submit"),
+            variant: :primary, size: :md, as: :button, type: "submit",
+            data: { test: "comment-submit" } %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="rounded-md border border-border bg-surface-2 px-4 py-3 text-sm text-text-muted">
+    <%= link_to t("iwebix.comments.sign_in_to_comment"),
+          new_user_session_path,
+          class: "text-accent hover:underline focus:outline-none focus-visible:underline",
+          data: { turbo_frame: "_top" } %>
+  </div>
+<% end %>

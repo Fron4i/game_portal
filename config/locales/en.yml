@@ -39,6 +39,28 @@ en:
       subscribe: "Subscribe"
       unsubscribe: "Unsubscribe"
       sign_in_to_subscribe: "Sign in to subscribe"
+    posts:
+      show:
+        by: "by %{author}"
+        deleted_author: "deleted user"
+    comments:
+      title:
+        zero:  "Comments"
+        one:   "1 comment"
+        other: "%{count} comments"
+      body_label: "Comment body"
+      placeholder: "Share your thoughts…"
+      submit: "Send"
+      empty: "No comments yet — be the first."
+      sign_in_to_comment: "Sign in to leave a comment"
+      delete: "Delete"
+      delete_confirm: "Delete this comment?"
+    likes:
+      aria_label:
+        zero:  "Like"
+        one:   "1 like"
+        other: "%{count} likes"
+      aria_label_guest: "Sign in to like"
     pagination:
       aria_label: "Pagination"
     layout:

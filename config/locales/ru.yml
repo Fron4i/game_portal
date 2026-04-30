@@ -53,6 +53,32 @@ ru:
       subscribe: "Подписаться"
       unsubscribe: "Отписаться"
       sign_in_to_subscribe: "Войдите, чтобы подписаться"
+    posts:
+      show:
+        by: "автор: %{author}"
+        deleted_author: "удалённый пользователь"
+    comments:
+      title:
+        zero:  "Комментарии"
+        one:   "%{count} комментарий"
+        few:   "%{count} комментария"
+        many:  "%{count} комментариев"
+        other: "%{count} комментариев"
+      body_label: "Текст комментария"
+      placeholder: "Поделитесь мыслями…"
+      submit: "Отправить"
+      empty: "Комментариев пока нет — будьте первым."
+      sign_in_to_comment: "Войдите, чтобы оставить комментарий"
+      delete: "Удалить"
+      delete_confirm: "Удалить этот комментарий?"
+    likes:
+      aria_label:
+        zero:  "Поставить лайк"
+        one:   "1 лайк"
+        few:   "%{count} лайка"
+        many:  "%{count} лайков"
+        other: "%{count} лайков"
+      aria_label_guest: "Войдите, чтобы поставить лайк"
     pagination:
       aria_label: "Постраничная навигация"
     layout:

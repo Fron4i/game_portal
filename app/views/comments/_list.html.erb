@@ -1,0 +1,13 @@
+<% if comments.any? %>
+  <div class="space-y-4">
+    <%= render comments %>
+  </div>
+
+  <% if local_assigns[:pagy] %>
+    <%= render "shared/pagination", pagy: pagy %>
+  <% end %>
+<% else %>
+  <p class="text-text-muted text-sm" data-test="comments-empty">
+    <%= t("iwebix.comments.empty") %>
+  </p>
+<% end %>

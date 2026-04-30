@@ -17,3 +17,71 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
+
+@layer components {
+  .iwebix-prose p              { margin-block: 0.75rem; }
+  .iwebix-prose p:first-child  { margin-top: 0; }
+  .iwebix-prose p:last-child   { margin-bottom: 0; }
+  .iwebix-prose h1,
+  .iwebix-prose h2,
+  .iwebix-prose h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+  .iwebix-prose h1 { font-size: 1.875rem; }
+  .iwebix-prose h2 { font-size: 1.5rem; }
+  .iwebix-prose h3 { font-size: 1.25rem; }
+  .iwebix-prose ul,
+  .iwebix-prose ol {
+    padding-inline-start: 1.5rem;
+    margin-block: 0.75rem;
+  }
+  .iwebix-prose ul { list-style: disc; }
+  .iwebix-prose ol { list-style: decimal; }
+  .iwebix-prose li { margin-block: 0.25rem; }
+  .iwebix-prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .iwebix-prose a:hover { color: var(--color-text); }
+  .iwebix-prose blockquote {
+    border-inline-start: 2px solid var(--color-border);
+    padding-inline-start: 1rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-block: 1rem;
+  }
+  .iwebix-prose code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-surface-2);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+  .iwebix-prose pre {
+    font-family: var(--font-mono);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-block: 1rem;
+  }
+  .iwebix-prose pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  .iwebix-prose img,
+  .iwebix-prose figure {
+    border-radius: 0.75rem;
+    margin-block: 1rem;
+    max-width: 100%;
+  }
+  .iwebix-prose strong { font-weight: 600; color: var(--color-text); }
+  .iwebix-prose em     { font-style: italic; }
+}

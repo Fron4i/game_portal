@@ -1,0 +1,30 @@
+<article id="<%= dom_id(comment) %>"
+         data-test="comment-<%= comment.id %>"
+         class="rounded-md border border-border bg-surface-2 p-4 space-y-3">
+  <header class="flex items-start justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm">
+      <span class="font-medium text-text">
+        <%= comment.user.name.presence || comment.user.email %>
+      </span>
+      <span class="text-text-muted font-mono text-xs">
+        <%= l comment.created_at.to_date, format: :short_date %>
+      </span>
+    </div>
+
+    <% if current_user && (current_user.id == comment.user_id || current_user.admin?) %>
+      <%= button_to t("iwebix.comments.delete"),
+            post_comment_path(comment.post, comment),
+            method: :delete,
+            data: { turbo_confirm: t("iwebix.comments.delete_confirm"), test: "comment-delete" },
+            class: "text-xs text-text-muted hover:text-danger transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" %>
+    <% end %>
+  </header>
+
+  <div class="text-text leading-relaxed whitespace-pre-line">
+    <%= comment.body %>
+  </div>
+
+  <div class="flex items-center">
+    <%= render "likes/button", likeable: comment, data_test: "comment-like" %>
+  </div>
+</article>

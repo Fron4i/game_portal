@@ -1,0 +1,37 @@
+<%
+  test_id       = local_assigns[:data_test]
+  count_test_id = local_assigns[:count_test_id]
+  liked         = current_user.present? && current_user.likes.exists?(likeable: likeable)
+  count         = likeable.likes.size
+
+  base = "inline-flex items-center gap-2 h-9 px-3 rounded-md border text-sm font-medium transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+
+  liked_state    = "bg-brand/10 text-brand border-brand/30 hover:bg-brand/15"
+  default_state  = "bg-surface-2 text-text border-border hover:bg-surface-3"
+  guest_state    = "bg-surface-2 text-text-muted border-border hover:text-text hover:bg-surface-3"
+%>
+
+<%= turbo_frame_tag dom_id(likeable, :likes), class: "inline-block" do %>
+  <% if current_user %>
+    <%= button_to likes_path(likeable_type: likeable.class.name, likeable_id: likeable.id),
+          method: (liked ? :delete : :post),
+          data: { turbo_frame: dom_id(likeable, :likes), test: test_id }.compact,
+          class: "#{base} #{liked ? liked_state : default_state}",
+          aria: { label: t("iwebix.likes.aria_label", count: count) } do %>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="<%= liked ? "currentColor" : "none" %>" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.5-9.5-9.5C0.5 7.5 4 4 7.5 5.5 9.5 6.4 12 9 12 9s2.5-2.6 4.5-3.5C20 4 23.5 7.5 21.5 11.5 19 16.5 12 21 12 21z"/>
+      </svg>
+      <%= tag.span count, data: ({ test: count_test_id } if count_test_id) %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path,
+          data: { turbo_frame: "_top", test: test_id }.compact,
+          class: "#{base} #{guest_state}",
+          aria: { label: t("iwebix.likes.aria_label_guest") } do %>
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.5-9.5-9.5C0.5 7.5 4 4 7.5 5.5 9.5 6.4 12 9 12 9s2.5-2.6 4.5-3.5C20 4 23.5 7.5 21.5 11.5 19 16.5 12 21 12 21z"/>
+      </svg>
+      <%= tag.span count, data: ({ test: count_test_id } if count_test_id) %>
+    <% end %>
+  <% end %>
+<% end %>
