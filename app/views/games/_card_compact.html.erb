@@ -2,7 +2,8 @@
       class: "group block rounded-2xl border border-border bg-surface-2 overflow-hidden transition-colors duration-150 ease-out hover:bg-surface-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface" do %>
   <div class="aspect-[16/9] bg-surface-3 overflow-hidden">
     <% if game.cover.attached? %>
-      <%= image_tag game.cover.variant(resize_to_fill: [400, 225]),
+      <%= cover_image_tag game,
+            size: [400, 225],
             alt: game.title,
             loading: "lazy",
             class: "w-full h-full object-cover" %>

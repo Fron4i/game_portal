@@ -2,7 +2,8 @@
 <article class="group relative bg-surface-2 border border-border rounded-2xl overflow-hidden flex flex-col transition-colors duration-150 ease-out hover:bg-surface-3">
   <%= link_to post_path(post), class: "block aspect-[16/9] bg-surface-3 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface", "aria-label": post.title do %>
     <% if game.cover.attached? %>
-      <%= image_tag game.cover.variant(resize_to_fill: [800, 450]),
+      <%= cover_image_tag game,
+            size: [800, 450],
             alt: game.title,
             loading: "lazy",
             class: "w-full h-full object-cover" %>

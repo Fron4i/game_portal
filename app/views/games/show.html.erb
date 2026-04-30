@@ -14,7 +14,8 @@
   <header class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 items-start">
     <div class="aspect-[16/9] rounded-2xl bg-surface-2 border border-border overflow-hidden">
       <% if @game.cover.attached? %>
-        <%= image_tag @game.cover.variant(resize_to_fill: [1280, 720]),
+        <%= cover_image_tag @game,
+              size: [1280, 720],
               alt: @game.title,
               loading: "lazy",
               class: "w-full h-full object-cover" %>

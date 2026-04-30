@@ -14,6 +14,18 @@ module ApplicationHelper
     request.referer.presence || fallback
   end
 
+  def cover_image_tag(record, size:, **html_opts)
+    return unless record.cover.attached?
+
+    image = if record.cover.blob.content_type == "image/svg+xml"
+              record.cover
+            else
+              record.cover.variant(resize_to_fill: size)
+            end
+
+    image_tag image, **html_opts
+  end
+
   private
 
   def current_path_matches?(path)
