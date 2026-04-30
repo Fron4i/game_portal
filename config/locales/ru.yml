@@ -3,7 +3,24 @@ ru:
     not_authorized: "Доступ запрещён."
   date:
     formats:
+      default: "%d.%m.%Y"
+      short: "%-d %b"
+      long: "%-d %B %Y"
       short_date: "%-d %b %Y"
+    month_names:
+      - ~
+      - январь
+      - февраль
+      - март
+      - апрель
+      - май
+      - июнь
+      - июль
+      - август
+      - сентябрь
+      - октябрь
+      - ноябрь
+      - декабрь
     abbr_month_names:
       - ~
       - янв
@@ -18,6 +35,11 @@ ru:
       - окт
       - ноя
       - дек
+  time:
+    formats:
+      default: "%-d %B %Y, %H:%M"
+      short: "%H:%M"
+      long: "%-d %B %Y, %H:%M:%S"
   activerecord:
     errors:
       models:

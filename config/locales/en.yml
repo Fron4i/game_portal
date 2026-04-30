@@ -3,7 +3,43 @@ en:
     not_authorized: "Access denied."
   date:
     formats:
+      default: "%Y-%m-%d"
+      short: "%b %-d"
+      long: "%B %-d, %Y"
       short_date: "%b %-d, %Y"
+    month_names:
+      - ~
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+  time:
+    formats:
+      default: "%B %-d, %Y, %H:%M"
+      short: "%H:%M"
+      long: "%B %-d, %Y, %H:%M:%S"
   activerecord:
     errors:
       models:
