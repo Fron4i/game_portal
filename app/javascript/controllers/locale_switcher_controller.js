@@ -7,7 +7,7 @@ export default class extends Controller {
 
     const url = new URL(window.location.href)
     url.searchParams.set("locale", locale)
-    window.location.assign(url.toString())
+    Turbo.visit(url.toString(), { action: "replace" })
   }
 
   connect() {
