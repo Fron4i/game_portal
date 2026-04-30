@@ -27,7 +27,7 @@ ActiveAdmin.register Post do
       f.input :game
       f.input :author, collection: User.order(:email)
       f.input :published_at, as: :datepicker
-      f.input :body, as: :rich_text_area
+      f.input :body, as: :text, input_html: { rows: 12 }
     end
     f.actions
   end
