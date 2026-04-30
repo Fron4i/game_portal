@@ -25,6 +25,13 @@ Rails.application.routes.draw do
   get "/feed", to: "feed#index", as: :feed
   get "/profile", to: "profile#show", as: :profile
 
+  namespace :api do
+    namespace :v1 do
+      resources :games, only: [:index, :show], param: :slug
+      resources :posts, only: [:index, :show], param: :slug
+    end
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   if Rails.env.development?
