@@ -4,6 +4,8 @@ class GameSerializer
   attributes :title, :slug, :description, :released_at
 
   attribute :cover_url do |game|
-    Rails.application.routes.url_helpers.url_for(game.cover) if game.cover.attached?
+    if game.cover.attached?
+      Rails.application.routes.url_helpers.rails_blob_path(game.cover, only_path: true)
+    end
   end
 end
