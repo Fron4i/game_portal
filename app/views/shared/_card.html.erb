@@ -1,0 +1,8 @@
+<%
+  padding ||= "p-6"
+  rounded ||= "rounded-2xl"
+  extra   = local_assigns[:class].to_s
+%>
+<div class="bg-surface-2 border border-border <%= rounded %> <%= padding %> <%= extra %>">
+  <%= yield %>
+</div>

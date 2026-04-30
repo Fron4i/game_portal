@@ -1,0 +1,18 @@
+<% styles = {
+  "notice"  => "bg-success/10 text-success border-success/30",
+  "success" => "bg-success/10 text-success border-success/30",
+  "alert"   => "bg-danger/10 text-danger border-danger/30",
+  "error"   => "bg-danger/10 text-danger border-danger/30",
+  "warning" => "bg-warning/10 text-warning border-warning/30",
+  "info"    => "bg-accent/10 text-accent border-accent/30"
+} %>
+
+<% if flash.any? %>
+  <div class="space-y-3" role="status" aria-live="polite">
+    <% flash.each do |kind, message| %>
+      <div class="rounded-md border px-4 py-3 text-sm <%= styles[kind.to_s] || styles['info'] %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

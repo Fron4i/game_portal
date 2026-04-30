@@ -1,0 +1,8 @@
+<%
+  pagy = local_assigns[:pagy]
+%>
+<% if pagy && pagy.pages > 1 %>
+  <nav aria-label="<%= t('iwebix.pagination.aria_label') %>" class="flex items-center justify-center gap-1 mt-8 text-sm font-mono">
+    <%== pagy_nav(pagy) %>
+  </nav>
+<% end %>

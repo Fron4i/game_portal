@@ -1,31 +1,54 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  iwebix:
+    tagline: "Every update is a new chapter"
+    pagination:
+      aria_label: "Pagination"
+    styleguide:
+      title: "iWebix Design System"
+      sections:
+        typography: "Typography"
+        colors: "Palette"
+        buttons: "Buttons"
+        cards: "Cards"
+        badges: "Badges"
+        forms: "Forms"
+        flash: "Flash messages"
+        pagination: "Pagination"
+        states: "States"
+      typography:
+        h1: "Heading level one"
+        h2: "Heading level two"
+        h3: "Heading level three"
+        body: "Body text. Inter, 16/24, calm on a dark surface — no decorations."
+        small: "Secondary text for captions and dates — muted zinc-400."
+        mono: "JetBrains Mono — for badges, meta and counters."
+      buttons:
+        sample: "Action"
+        disabled: "Unavailable"
+      cards:
+        announcement_title: "New game announcement"
+        update_title: "Update 1.4: chapter three"
+        body: "Post description. The card is the building block of the feed, game page and profile."
+        date: "Apr 30, 2026"
+      badges:
+        announcement: "announcement"
+        update: "update"
+        draft: "draft"
+      forms:
+        email_label: "Email"
+        email_placeholder: "you@iwebix.com"
+        password_label: "Password"
+        password_hint: "At least 8 characters."
+        invalid_label: "Invalid field"
+        invalid_hint: "Value is not valid."
+        submit: "Save"
+        cancel: "Cancel"
+      flash:
+        notice: "Changes saved."
+        alert: "Something went wrong."
+        warning: "Warning: check the input."
+        info: "Hint: locale switcher will appear in the header."
+      states:
+        default: "Default"
+        focused: "Focused"
+        disabled: "Disabled"

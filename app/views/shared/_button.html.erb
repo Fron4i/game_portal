@@ -1,0 +1,35 @@
+<%
+  variant ||= :primary
+  size    ||= :md
+  as      ||= :link_to
+  href    ||= "#"
+  data    ||= {}
+  method  ||= nil
+  disabled = local_assigns.fetch(:disabled, false)
+  extra    = local_assigns[:class].to_s
+
+  base = "inline-flex items-center justify-center gap-2 font-medium rounded-md transition-colors duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:opacity-50 disabled:cursor-not-allowed"
+
+  variants = {
+    primary:   "bg-brand text-white hover:bg-violet-400",
+    secondary: "bg-surface-2 text-text border border-border hover:bg-surface-3",
+    ghost:     "text-text hover:bg-surface-2",
+    danger:    "bg-danger text-white hover:bg-red-400"
+  }
+
+  sizes = {
+    sm: "h-8 px-3 text-sm",
+    md: "h-10 px-4 text-base",
+    lg: "h-12 px-5 text-base"
+  }
+
+  classes = "#{base} #{variants.fetch(variant)} #{sizes.fetch(size)} #{extra}".squish
+%>
+
+<% if as == :button_to %>
+  <%= button_to href, method: method || :post, class: classes, data: data, disabled: disabled do %><%= label %><% end %>
+<% elsif as == :button %>
+  <button type="button" class="<%= classes %>" <%= "disabled" if disabled %> <%= data.map { |k, v| "data-#{k.to_s.dasherize}=\"#{v}\"" }.join(" ").html_safe %>><%= label %></button>
+<% else %>
+  <%= link_to href, class: classes, data: data do %><%= label %><% end %>
+<% end %>

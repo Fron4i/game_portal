@@ -1,0 +1,32 @@
+<%
+  type        ||= "text"
+  name        ||= ""
+  value       ||= ""
+  placeholder ||= ""
+  id          ||= name
+  label_text  = local_assigns[:label]
+  hint        = local_assigns[:hint]
+  invalid     = local_assigns.fetch(:invalid, false)
+  extra       = local_assigns[:class].to_s
+
+  ring  = invalid ? "ring-2 ring-danger" : ""
+  field = "w-full h-10 px-3 rounded-md bg-surface-2 border border-border text-text placeholder:text-text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface #{ring} #{extra}".squish
+%>
+
+<div class="space-y-1.5">
+  <% if label_text %>
+    <label for="<%= id %>" class="block text-sm font-medium text-text"><%= label_text %></label>
+  <% end %>
+  <input
+    type="<%= type %>"
+    name="<%= name %>"
+    id="<%= id %>"
+    value="<%= value %>"
+    placeholder="<%= placeholder %>"
+    class="<%= field %>"
+    <%= "aria-invalid=\"true\"".html_safe if invalid %>
+  >
+  <% if hint %>
+    <p class="text-sm text-text-muted"><%= hint %></p>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<%
+  variant ||= :announcement
+  styles = {
+    announcement: "bg-brand/10 text-brand border-brand/30",
+    update:       "bg-accent/10 text-accent border-accent/30",
+    neutral:      "bg-surface-3 text-text-muted border-border"
+  }
+%>
+<span class="inline-flex items-center px-2 py-0.5 rounded-md border text-xs font-mono uppercase tracking-wide <%= styles.fetch(variant) %>">
+  <%= label %>
+</span>

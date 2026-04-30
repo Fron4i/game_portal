@@ -1,0 +1,137 @@
+<% content_for(:title, t("iwebix.styleguide.title")) %>
+
+<div class="max-w-5xl mx-auto px-5 py-12 space-y-16">
+  <header class="space-y-4">
+    <%= render "shared/logo", size: :lg %>
+    <h1 class="font-display text-4xl font-semibold"><%= t("iwebix.styleguide.title") %></h1>
+    <p class="text-text-muted text-base"><%= t("iwebix.tagline") %></p>
+  </header>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.typography") %></h2>
+    <div class="space-y-4">
+      <h1 class="font-display text-4xl font-semibold leading-tight"><%= t("iwebix.styleguide.typography.h1") %></h1>
+      <h2 class="font-display text-3xl font-semibold leading-tight"><%= t("iwebix.styleguide.typography.h2") %></h2>
+      <h3 class="font-display text-xl font-semibold leading-snug"><%= t("iwebix.styleguide.typography.h3") %></h3>
+      <p class="text-base leading-relaxed"><%= t("iwebix.styleguide.typography.body") %></p>
+      <p class="text-sm text-text-muted"><%= t("iwebix.styleguide.typography.small") %></p>
+      <p class="font-mono text-sm text-accent"><%= t("iwebix.styleguide.typography.mono") %></p>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.colors") %></h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <% %i[surface surface-2 surface-3 border text text-muted brand accent success warning danger].each do |token| %>
+        <div class="rounded-md border border-border overflow-hidden">
+          <div class="h-16 bg-<%= token %>"></div>
+          <div class="px-3 py-2 text-xs font-mono text-text-muted bg-surface-2"><%= token %></div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.buttons") %></h2>
+    <% %i[primary secondary ghost danger].each do |variant| %>
+      <div class="space-y-3">
+        <h3 class="font-mono text-xs uppercase tracking-wide text-text-muted"><%= variant %></h3>
+        <div class="flex flex-wrap items-end gap-3">
+          <%= render "shared/button", label: t("iwebix.styleguide.buttons.sample"), variant: variant, size: :sm %>
+          <%= render "shared/button", label: t("iwebix.styleguide.buttons.sample"), variant: variant, size: :md %>
+          <%= render "shared/button", label: t("iwebix.styleguide.buttons.sample"), variant: variant, size: :lg %>
+          <%= render "shared/button", label: t("iwebix.styleguide.buttons.disabled"), variant: variant, size: :md, as: :button, disabled: true %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.cards") %></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <%= render layout: "shared/card" do %>
+        <div class="space-y-3">
+          <%= render "shared/badge", variant: :announcement, label: t("iwebix.styleguide.badges.announcement") %>
+          <h3 class="font-display text-xl font-semibold"><%= t("iwebix.styleguide.cards.announcement_title") %></h3>
+          <p class="text-text-muted text-sm leading-relaxed"><%= t("iwebix.styleguide.cards.body") %></p>
+          <div class="flex items-center gap-3 text-xs font-mono text-text-muted">
+            <span><%= t("iwebix.styleguide.cards.date") %></span>
+            <span>♥ 124</span>
+            <span>💬 18</span>
+          </div>
+        </div>
+      <% end %>
+      <%= render layout: "shared/card" do %>
+        <div class="space-y-3">
+          <%= render "shared/badge", variant: :update, label: t("iwebix.styleguide.badges.update") %>
+          <h3 class="font-display text-xl font-semibold"><%= t("iwebix.styleguide.cards.update_title") %></h3>
+          <p class="text-text-muted text-sm leading-relaxed"><%= t("iwebix.styleguide.cards.body") %></p>
+          <div class="flex items-center gap-3 text-xs font-mono text-text-muted">
+            <span><%= t("iwebix.styleguide.cards.date") %></span>
+            <span>♥ 42</span>
+            <span>💬 5</span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.badges") %></h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <%= render "shared/badge", variant: :announcement, label: t("iwebix.styleguide.badges.announcement") %>
+      <%= render "shared/badge", variant: :update,       label: t("iwebix.styleguide.badges.update") %>
+      <%= render "shared/badge", variant: :neutral,      label: t("iwebix.styleguide.badges.draft") %>
+    </div>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.forms") %></h2>
+    <%= render layout: "shared/card" do %>
+      <form class="space-y-4 max-w-md" onsubmit="event.preventDefault()">
+        <%= render "shared/input", id: "sg-email", name: "email", type: "email",
+                                   label: t("iwebix.styleguide.forms.email_label"),
+                                   placeholder: t("iwebix.styleguide.forms.email_placeholder") %>
+        <%= render "shared/input", id: "sg-password", name: "password", type: "password",
+                                   label: t("iwebix.styleguide.forms.password_label"),
+                                   hint: t("iwebix.styleguide.forms.password_hint") %>
+        <%= render "shared/input", id: "sg-broken", name: "broken",
+                                   label: t("iwebix.styleguide.forms.invalid_label"),
+                                   value: "wrong",
+                                   hint: t("iwebix.styleguide.forms.invalid_hint"),
+                                   invalid: true %>
+        <div class="flex gap-3 pt-2">
+          <%= render "shared/button", label: t("iwebix.styleguide.forms.submit"), variant: :primary, size: :md, as: :button %>
+          <%= render "shared/button", label: t("iwebix.styleguide.forms.cancel"), variant: :ghost,   size: :md, as: :button %>
+        </div>
+      </form>
+    <% end %>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.flash") %></h2>
+    <%= render "shared/flash" %>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.pagination") %></h2>
+    <nav aria-label="<%= t('iwebix.pagination.aria_label') %>" class="flex items-center justify-center gap-1 text-sm font-mono">
+      <a href="#" class="h-9 px-3 inline-flex items-center rounded-md border border-border text-text-muted hover:bg-surface-2">‹</a>
+      <a href="#" class="h-9 w-9 inline-flex items-center justify-center rounded-md border border-border bg-brand text-white">1</a>
+      <a href="#" class="h-9 w-9 inline-flex items-center justify-center rounded-md border border-border hover:bg-surface-2">2</a>
+      <a href="#" class="h-9 w-9 inline-flex items-center justify-center rounded-md border border-border hover:bg-surface-2">3</a>
+      <span class="h-9 px-2 inline-flex items-center text-text-muted">…</span>
+      <a href="#" class="h-9 w-9 inline-flex items-center justify-center rounded-md border border-border hover:bg-surface-2">9</a>
+      <a href="#" class="h-9 px-3 inline-flex items-center rounded-md border border-border text-text-muted hover:bg-surface-2">›</a>
+    </nav>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2"><%= t("iwebix.styleguide.sections.states") %></h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <%= render "shared/button", label: t("iwebix.styleguide.states.default"),  variant: :primary, size: :md, as: :button %>
+      <button type="button" class="inline-flex items-center justify-center gap-2 font-medium rounded-md h-10 px-4 text-base bg-brand text-white ring-2 ring-brand ring-offset-2 ring-offset-surface"><%= t("iwebix.styleguide.states.focused") %></button>
+      <%= render "shared/button", label: t("iwebix.styleguide.states.disabled"), variant: :primary, size: :md, as: :button, disabled: true %>
+    </div>
+  </section>
+</div>

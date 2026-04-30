@@ -1,0 +1,54 @@
+ru:
+  iwebix:
+    tagline: "Каждое обновление — новая глава"
+    pagination:
+      aria_label: "Постраничная навигация"
+    styleguide:
+      title: "Дизайн-система iWebix"
+      sections:
+        typography: "Типографика"
+        colors: "Палитра"
+        buttons: "Кнопки"
+        cards: "Карточки"
+        badges: "Бейджи"
+        forms: "Формы"
+        flash: "Сообщения"
+        pagination: "Пагинация"
+        states: "Состояния"
+      typography:
+        h1: "Заголовок первого уровня"
+        h2: "Заголовок второго уровня"
+        h3: "Заголовок третьего уровня"
+        body: "Основной текст. Inter, 16/24, на тёмной поверхности — спокойно, без украшений."
+        small: "Вторичный текст для подписей и дат — приглушённый zinc-400."
+        mono: "JetBrains Mono — для бейджей, мета и счётчиков."
+      buttons:
+        sample: "Действие"
+        disabled: "Недоступно"
+      cards:
+        announcement_title: "Анонс новой игры"
+        update_title: "Обновление 1.4: глава третья"
+        body: "Описание поста. Карточка — основной строительный блок ленты, страницы игры и профиля."
+        date: "30 апр 2026"
+      badges:
+        announcement: "анонс"
+        update: "обновление"
+        draft: "черновик"
+      forms:
+        email_label: "Email"
+        email_placeholder: "you@iwebix.ru"
+        password_label: "Пароль"
+        password_hint: "Минимум 8 символов."
+        invalid_label: "Поле с ошибкой"
+        invalid_hint: "Значение не подходит."
+        submit: "Сохранить"
+        cancel: "Отмена"
+      flash:
+        notice: "Изменения сохранены."
+        alert: "Что-то пошло не так."
+        warning: "Внимание: проверьте введённые данные."
+        info: "Подсказка: переключатель локали появится в шапке."
+      states:
+        default: "Обычное"
+        focused: "В фокусе"
+        disabled: "Недоступно"
