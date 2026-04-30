@@ -1,0 +1,19 @@
+<% subscribed = current_user.present? && game.subscribed_by?(current_user) %>
+
+<% if current_user %>
+  <%= render "shared/button",
+        label: subscribed ? t("iwebix.subscriptions.unsubscribe") : t("iwebix.subscriptions.subscribe"),
+        variant: subscribed ? :secondary : :primary,
+        size: :md,
+        as: :button_to,
+        href: subscriptions_game_path(game),
+        method: (subscribed ? :delete : :post),
+        data: { turbo_frame: dom_id(game, :subscription) } %>
+<% else %>
+  <%= render "shared/button",
+        label: t("iwebix.subscriptions.sign_in_to_subscribe"),
+        variant: :secondary,
+        size: :md,
+        as: :link_to,
+        href: new_user_session_path %>
+<% end %>

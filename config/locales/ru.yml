@@ -43,6 +43,16 @@ ru:
         kinds:
           announcement: "анонс"
           update: "обновление"
+    games:
+      show:
+        no_cover: "без обложки"
+        released_at: "релиз %{date}"
+        posts_title: "Посты"
+        posts_empty: "У этой игры пока нет постов."
+    subscriptions:
+      subscribe: "Подписаться"
+      unsubscribe: "Отписаться"
+      sign_in_to_subscribe: "Войдите, чтобы подписаться"
     pagination:
       aria_label: "Постраничная навигация"
     layout:

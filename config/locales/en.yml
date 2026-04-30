@@ -29,6 +29,16 @@ en:
         kinds:
           announcement: "announcement"
           update: "update"
+    games:
+      show:
+        no_cover: "no cover"
+        released_at: "released %{date}"
+        posts_title: "Posts"
+        posts_empty: "This game has no posts yet."
+    subscriptions:
+      subscribe: "Subscribe"
+      unsubscribe: "Unsubscribe"
+      sign_in_to_subscribe: "Sign in to subscribe"
     pagination:
       aria_label: "Pagination"
     layout:

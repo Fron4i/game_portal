@@ -1,11 +1,54 @@
-<h1><%= @game.title %></h1>
+<% content_for(:title, @game.title) %>
 
-<p><%= @game.description %></p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+  <header class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 items-start">
+    <div class="aspect-[16/9] rounded-2xl bg-surface-2 border border-border overflow-hidden">
+      <% if @game.cover.attached? %>
+        <%= image_tag @game.cover.variant(resize_to_fill: [1280, 720]),
+              alt: @game.title,
+              loading: "lazy",
+              class: "w-full h-full object-cover" %>
+      <% else %>
+        <div class="w-full h-full flex items-center justify-center text-text-muted font-mono text-xs uppercase tracking-wide">
+          <%= t("iwebix.games.show.no_cover") %>
+        </div>
+      <% end %>
+    </div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
-  <% end %>
-</ul>
+    <div class="space-y-4">
+      <h1 class="font-display text-4xl font-semibold leading-tight"><%= @game.title %></h1>
 
-<%= pagy_nav(@pagy) if @pagy.pages > 1 %>
+      <% if @game.released_at %>
+        <p class="text-text-muted text-sm font-mono">
+          <%= t("iwebix.games.show.released_at", date: l(@game.released_at.to_date, format: :short_date)) %>
+        </p>
+      <% end %>
+
+      <% if @game.description.present? %>
+        <div class="text-text-muted leading-relaxed whitespace-pre-line"><%= @game.description %></div>
+      <% end %>
+
+      <%= turbo_frame_tag dom_id(@game, :subscription) do %>
+        <%= render "subscriptions/form", game: @game %>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2">
+      <%= t("iwebix.games.show.posts_title") %>
+    </h2>
+
+    <% if @posts.any? %>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <% @posts.each do |post| %>
+          <%= render "posts/card", post: post %>
+        <% end %>
+      </div>
+
+      <%= render "shared/pagination", pagy: @pagy %>
+    <% else %>
+      <p class="text-text-muted"><%= t("iwebix.games.show.posts_empty") %></p>
+    <% end %>
+  </section>
+</div>
