@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   extend FriendlyId
+  include Likeable
 
   friendly_id :title, use: :slugged
 
@@ -7,7 +8,6 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: "User", inverse_of: :posts, optional: true
 
   has_many :comments, dependent: :destroy
-  has_many :likes, as: :likeable, dependent: :destroy
 
   has_rich_text :body
 
