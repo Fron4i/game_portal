@@ -19,4 +19,10 @@ class User < ApplicationRecord
   def inactive_message
     blocked ? :blocked : super
   end
+
+  def subscribed_to?(game)
+    return false if game.blank?
+
+    subscriptions.exists?(game_id: game.id)
+  end
 end

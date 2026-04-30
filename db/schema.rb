@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_30_194329) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_30_194831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -112,6 +112,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_30_194329) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "game_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["game_id"], name: "index_subscriptions_on_game_id"
+    t.index ["user_id", "game_id"], name: "index_subscriptions_on_user_id_and_game_id", unique: true
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.boolean "blocked", default: false, null: false
     t.datetime "confirmation_sent_at"
@@ -140,4 +150,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_30_194329) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "games"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "subscriptions", "games"
+  add_foreign_key "subscriptions", "users"
 end

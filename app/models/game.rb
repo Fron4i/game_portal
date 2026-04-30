@@ -19,6 +19,12 @@ class Game < ApplicationRecord
   scope :released, -> { where(arel_table[:released_at].lteq(Time.current)) }
   scope :latest, -> { order(released_at: :desc) }
 
+  def subscribed_by?(user)
+    return false if user.blank?
+
+    subscriptions.exists?(user_id: user.id)
+  end
+
   private
 
   def acceptable_cover
