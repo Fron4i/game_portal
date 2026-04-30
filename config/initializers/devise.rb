@@ -26,11 +26,8 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = ENV.fetch('MAIL_FROM', 'noreply@iwebix.local')
 
-  # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
-
-  # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
+  config.mailer = "DeviseMailer"
+  config.parent_mailer = "ApplicationMailer"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and

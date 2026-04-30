@@ -33,4 +33,10 @@ class User < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     %w[posts comments likes subscriptions subscribed_games]
   end
+
+  protected
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
