@@ -15,5 +15,6 @@
         variant: :secondary,
         size: :md,
         as: :link_to,
-        href: new_user_session_path %>
+        href: new_user_session_path,
+        data: { turbo_frame: "_top" } %>
 <% end %>
