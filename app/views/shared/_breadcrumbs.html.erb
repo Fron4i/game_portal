@@ -1,0 +1,21 @@
+<% crumbs = local_assigns[:crumbs] || [] %>
+
+<% if crumbs.any? %>
+  <nav aria-label="<%= t('iwebix.layout.breadcrumbs_aria') %>" class="text-sm">
+    <ol class="flex flex-wrap items-center gap-1 text-text-muted font-mono">
+      <% crumbs.each_with_index do |(label, path), i| %>
+        <li class="inline-flex items-center">
+          <% if path.present? %>
+            <%= link_to label, path,
+                  class: "hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" %>
+          <% else %>
+            <span class="text-text" aria-current="page"><%= label %></span>
+          <% end %>
+        </li>
+        <% unless i == crumbs.size - 1 %>
+          <li class="text-text-muted" aria-hidden="true">›</li>
+        <% end %>
+      <% end %>
+    </ol>
+  </nav>
+<% end %>

@@ -10,6 +10,10 @@ module ApplicationHelper
     link_to label, path, **opts.merge(class: "#{base} #{state}", **aria)
   end
 
+  def back_path(fallback = root_path)
+    request.referer.presence || fallback
+  end
+
   private
 
   def current_path_matches?(path)

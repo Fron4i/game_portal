@@ -1,6 +1,11 @@
 <% content_for(:title, t("iwebix.auth.edit_profile.title")) %>
 
-<div class="max-w-md mx-auto px-4 py-12 space-y-8">
+<div class="max-w-md mx-auto px-4 py-12 space-y-6">
+  <%= render "shared/breadcrumbs", crumbs: [
+        [t("iwebix.profile.title"),             profile_path],
+        [t("iwebix.auth.edit_profile.title"),   nil]
+      ] %>
+
   <header class="space-y-1">
     <h1 class="font-display text-3xl font-semibold"><%= t("iwebix.auth.edit_profile.title") %></h1>
   </header>
@@ -40,10 +45,17 @@
             label: t("iwebix.auth.edit_profile.current_password"),
             hint: t("iwebix.auth.edit_profile.current_password_hint") %>
 
-      <%= render "shared/button",
-            label: t("iwebix.auth.edit_profile.submit"),
-            variant: :primary, size: :md, as: :button, type: "submit",
-            class: "w-full" %>
+      <div class="flex flex-col sm:flex-row-reverse sm:justify-start gap-3">
+        <%= render "shared/button",
+              label: t("iwebix.auth.edit_profile.submit"),
+              variant: :primary, size: :md, as: :button, type: "submit",
+              class: "w-full sm:w-auto" %>
+        <%= render "shared/button",
+              label: t("iwebix.layout.cancel"),
+              variant: :ghost, size: :md, as: :link_to,
+              href: profile_path,
+              class: "w-full sm:w-auto" %>
+      </div>
     <% end %>
   <% end %>
 

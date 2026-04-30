@@ -1,6 +1,17 @@
 <% content_for(:title, @game.title) %>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+  <%= render "shared/breadcrumbs", crumbs: [
+        [t("iwebix.layout.nav.games"), games_path],
+        [@game.title, nil]
+      ] %>
+
+  <%= link_to back_path,
+        class: "inline-flex items-center gap-1 text-sm text-text-muted hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" do %>
+    <span aria-hidden="true">←</span>
+    <%= t("iwebix.layout.back") %>
+  <% end %>
+
   <header class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 items-start">
     <div class="aspect-[16/9] rounded-2xl bg-surface-2 border border-border overflow-hidden">
       <% if @game.cover.attached? %>

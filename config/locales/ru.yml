@@ -132,6 +132,9 @@ ru:
       footer_nav: "Информация"
       toggle_menu: "Открыть меню"
       locale_switcher: "Переключатель языка"
+      breadcrumbs_aria: "Хлебные крошки"
+      back: "Назад"
+      cancel: "Отмена"
       sign_in: "Войти"
       nav:
         home:  "Главная"

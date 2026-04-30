@@ -1,6 +1,18 @@
 <% content_for(:title, @post.title) %>
 
-<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+  <%= render "shared/breadcrumbs", crumbs: [
+        [t("iwebix.layout.nav.games"),  games_path],
+        [@post.game.title,              game_path(@post.game)],
+        [@post.title,                   nil]
+      ] %>
+
+  <%= link_to back_path,
+        class: "inline-flex items-center gap-1 text-sm text-text-muted hover:text-text transition-colors duration-150 ease-out focus:outline-none focus-visible:underline" do %>
+    <span aria-hidden="true">←</span>
+    <%= t("iwebix.layout.back") %>
+  <% end %>
+
   <article class="space-y-6">
     <header class="space-y-4">
       <div class="flex flex-wrap items-center gap-3">

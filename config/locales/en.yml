@@ -128,6 +128,9 @@ en:
       footer_nav: "Information"
       toggle_menu: "Open menu"
       locale_switcher: "Language switcher"
+      breadcrumbs_aria: "Breadcrumbs"
+      back: "Back"
+      cancel: "Cancel"
       sign_in: "Sign in"
       nav:
         home:  "Home"
