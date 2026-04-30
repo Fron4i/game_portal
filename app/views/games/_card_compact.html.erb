@@ -1,0 +1,20 @@
+<%= link_to game_path(game),
+      class: "group block rounded-2xl border border-border bg-surface-2 overflow-hidden transition-colors duration-150 ease-out hover:bg-surface-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface" do %>
+  <div class="aspect-[16/9] bg-surface-3 overflow-hidden">
+    <% if game.cover.attached? %>
+      <%= image_tag game.cover.variant(resize_to_fill: [400, 225]),
+            alt: game.title,
+            loading: "lazy",
+            class: "w-full h-full object-cover" %>
+    <% else %>
+      <div class="w-full h-full flex items-center justify-center text-text-muted font-mono text-xs uppercase tracking-wide">
+        <%= t("iwebix.games.show.no_cover") %>
+      </div>
+    <% end %>
+  </div>
+  <div class="p-4">
+    <h3 class="font-display text-lg font-semibold leading-snug group-hover:text-brand transition-colors duration-150 ease-out">
+      <%= game.title %>
+    </h3>
+  </div>
+<% end %>

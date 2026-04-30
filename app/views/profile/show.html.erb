@@ -1,20 +1,78 @@
-<h1>Профиль</h1>
+<% content_for(:title, t("iwebix.profile.title")) %>
 
-<section>
-  <h2>Мои комментарии</h2>
-  <ul>
-    <% @comments.each do |comment| %>
-      <li><%= link_to comment.post.title, post_path(comment.post) %>: <%= comment.body %></li>
-    <% end %>
-  </ul>
-  <%= pagy_nav(@pagy) if @pagy.pages > 1 %>
-</section>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+  <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="space-y-1">
+      <h1 class="font-display text-4xl font-semibold"><%= t("iwebix.profile.title") %></h1>
+      <p class="text-text-muted">
+        <span class="text-text font-medium"><%= current_user.name.presence || current_user.email %></span>
+        <% if current_user.name.present? %>
+          <span class="font-mono text-xs">· <%= current_user.email %></span>
+        <% end %>
+      </p>
+    </div>
 
-<section>
-  <h2>Мои подписки</h2>
-  <ul>
-    <% @subscribed_games.each do |game| %>
-      <li><%= link_to game.title, game_path(game) %></li>
+    <div class="flex flex-wrap items-center gap-3">
+      <%= render "shared/button",
+            label: t("iwebix.profile.account_settings"),
+            variant: :secondary, size: :md, as: :link_to,
+            href: edit_user_registration_path %>
+      <%= button_to t("iwebix.profile.sign_out"),
+            destroy_user_session_path,
+            method: :delete,
+            class: "inline-flex items-center justify-center gap-2 font-medium rounded-md transition-colors duration-150 ease-out h-10 px-4 text-base bg-surface-2 text-text border border-border hover:bg-surface-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface" %>
+    </div>
+  </header>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2">
+      <%= t("iwebix.profile.my_comments.title") %>
+    </h2>
+
+    <% if @comments.any? %>
+      <ul class="space-y-4">
+        <% @comments.each do |comment| %>
+          <li class="rounded-md border border-border bg-surface-2 p-4 space-y-2">
+            <p class="text-text leading-relaxed whitespace-pre-line">
+              <%= comment.body.to_s.truncate(280) %>
+            </p>
+            <p class="text-xs font-mono text-text-muted flex items-center gap-2">
+              <%= link_to comment.post.title, post_path(comment.post),
+                    class: "text-accent hover:underline focus:outline-none focus-visible:underline" %>
+              ·
+              <span><%= l comment.created_at.to_date, format: :short_date %></span>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= render "shared/pagination", pagy: @pagy %>
+    <% else %>
+      <p class="text-text-muted"><%= t("iwebix.profile.my_comments.empty") %></p>
     <% end %>
-  </ul>
-</section>
+  </section>
+
+  <section class="space-y-6">
+    <h2 class="font-display text-2xl font-semibold border-b border-border pb-2">
+      <%= t("iwebix.profile.my_subscriptions.title") %>
+    </h2>
+
+    <% if @subscribed_games.any? %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <% @subscribed_games.each do |game| %>
+          <%= render "games/card_compact", game: game %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="rounded-2xl border border-border bg-surface-2 px-6 py-12 text-center space-y-4">
+        <p class="text-text-muted max-w-md mx-auto">
+          <%= t("iwebix.profile.my_subscriptions.empty.subtitle") %>
+        </p>
+        <%= render "shared/button",
+              label: t("iwebix.profile.my_subscriptions.empty.cta"),
+              variant: :primary, size: :md, as: :link_to,
+              href: games_path %>
+      </div>
+    <% end %>
+  </section>
+</div>

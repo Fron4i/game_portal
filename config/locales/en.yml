@@ -30,6 +30,18 @@ en:
         title: "Your feed is empty"
         subtitle: "Subscribe to a game — its announcements and updates will appear here."
         cta: "Browse games"
+    profile:
+      title: "Profile"
+      account_settings: "Account settings"
+      sign_out: "Sign out"
+      my_comments:
+        title: "My comments"
+        empty: "No comments yet — leave one under a post you like."
+      my_subscriptions:
+        title: "My subscriptions"
+        empty:
+          subtitle: "You're not subscribed to anything yet. Subscribe to a game to see its announcements in the feed."
+          cta: "Browse games"
     posts:
       card:
         no_cover: "no cover"
