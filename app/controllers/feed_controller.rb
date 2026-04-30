@@ -7,7 +7,7 @@ class FeedController < ApplicationController
     @pagy, @posts = pagy(
       policy_scope(Post)
         .where(game_id: current_user.subscribed_games.select(:id))
-        .includes(:game, :author, :rich_text_body)
+        .includes(:author, :rich_text_body, game: { cover_attachment: :blob })
         .order(published_at: :desc)
     )
   end

@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @pagy, @posts = pagy(
-      policy_scope(Post).includes(:game, :author, :rich_text_body).order(published_at: :desc)
+      policy_scope(Post).includes(:author, :rich_text_body, game: { cover_attachment: :blob }).order(published_at: :desc)
     )
   end
 end
