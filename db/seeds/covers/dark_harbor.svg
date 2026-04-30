@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#18181b"/>
+  <rect x="0" y="0" width="4" height="720" fill="#8b5cf6"/>
+  <text x="640" y="380" text-anchor="middle"
+        font-family="Space Grotesk, Inter, sans-serif"
+        font-weight="700" font-size="96" fill="#f4f4f5">
+    Тёмная гавань
+  </text>
+</svg>

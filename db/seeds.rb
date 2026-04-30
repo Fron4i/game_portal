@@ -31,9 +31,9 @@ users = [
 end
 
 games_data = [
-  { title: "Звёздный путь",  description: "Космическая RPG студии iWebix о капитане без права на ошибку.", released_at: 8.months.ago, cover: "star_path.png" },
-  { title: "Тёмная гавань",  description: "Атмосферный survival-horror в заброшенном портовом городе.", released_at: 3.months.ago, cover: "dark_harbor.png" },
-  { title: "Каменное эхо",   description: "Тактическая стратегия с управлением небольшим отрядом разведчиков.", released_at: 1.month.from_now, cover: "stone_echo.png" }
+  { title: "Звёздный путь",  description: "Космическая RPG студии iWebix о капитане без права на ошибку.", released_at: 8.months.ago, cover: "star_path.svg" },
+  { title: "Тёмная гавань",  description: "Атмосферный survival-horror в заброшенном портовом городе.", released_at: 3.months.ago, cover: "dark_harbor.svg" },
+  { title: "Каменное эхо",   description: "Тактическая стратегия с управлением небольшим отрядом разведчиков.", released_at: 1.month.from_now, cover: "stone_echo.svg" }
 ]
 
 games = games_data.map do |attrs|
@@ -43,7 +43,7 @@ games = games_data.map do |attrs|
   g.save!
   cover_path = Rails.root.join("db/seeds/covers", attrs[:cover])
   if cover_path.file? && !g.cover.attached?
-    g.cover.attach(io: cover_path.open, filename: attrs[:cover], content_type: "image/png")
+    g.cover.attach(io: cover_path.open, filename: attrs[:cover], content_type: "image/svg+xml")
   end
   g
 end

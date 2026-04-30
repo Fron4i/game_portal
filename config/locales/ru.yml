@@ -46,7 +46,7 @@ ru:
         game:
           attributes:
             cover:
-              invalid_content_type: "должна быть PNG, JPEG или WebP"
+              invalid_content_type: "должна быть PNG, JPEG, WebP или SVG"
               too_big: "не должна превышать 5 МБ"
   iwebix:
     tagline: "Каждое обновление — новая глава"

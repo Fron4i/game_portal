@@ -46,7 +46,7 @@ en:
         game:
           attributes:
             cover:
-              invalid_content_type: "must be PNG, JPEG or WebP"
+              invalid_content_type: "must be PNG, JPEG, WebP or SVG"
               too_big: "must be 5 MB or smaller"
   iwebix:
     tagline: "Every update is a new chapter"

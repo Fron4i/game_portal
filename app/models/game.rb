@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   extend FriendlyId
 
-  COVER_CONTENT_TYPES = %w[image/png image/jpeg image/webp].freeze
+  COVER_CONTENT_TYPES = %w[image/png image/jpeg image/webp image/svg+xml].freeze
   COVER_MAX_SIZE = 5.megabytes
 
   friendly_id :title, use: :slugged
