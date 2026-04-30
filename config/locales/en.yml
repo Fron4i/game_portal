@@ -1,4 +1,12 @@
 en:
+  activerecord:
+    errors:
+      models:
+        game:
+          attributes:
+            cover:
+              invalid_content_type: "must be PNG, JPEG or WebP"
+              too_big: "must be 5 MB or smaller"
   iwebix:
     tagline: "Every update is a new chapter"
     pagination:
