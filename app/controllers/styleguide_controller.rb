@@ -1,5 +1,5 @@
 class StyleguideController < ApplicationController
-  skip_after_action :verify_authorized, :verify_policy_scoped
+  skip_after_action :verify_authorized
 
   def show
   end
