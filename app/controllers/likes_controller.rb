@@ -7,14 +7,14 @@ class LikesController < ApplicationController
   def create
     @like = Like.find_or_create_by(user: current_user, likeable: @likeable)
     authorize @like
-    redirect_back fallback_location: root_path, notice: t("iwebix.flash.notice")
+    redirect_back fallback_location: root_path
   end
 
   def destroy
     @like = Like.find_or_initialize_by(user: current_user, likeable: @likeable)
     authorize @like
     @like.destroy if @like.persisted?
-    redirect_back fallback_location: root_path, notice: t("iwebix.flash.notice")
+    redirect_back fallback_location: root_path
   end
 
   private

@@ -5,14 +5,14 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.find_or_create_by(user: current_user, game: @game)
     authorize @subscription
-    redirect_to game_path(@game), notice: t("iwebix.flash.notice")
+    redirect_to game_path(@game)
   end
 
   def destroy
     @subscription = Subscription.find_or_initialize_by(user: current_user, game: @game)
     authorize @subscription
     @subscription.destroy if @subscription.persisted?
-    redirect_to game_path(@game), notice: t("iwebix.flash.notice")
+    redirect_to game_path(@game)
   end
 
   private
