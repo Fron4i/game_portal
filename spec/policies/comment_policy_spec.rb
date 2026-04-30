@@ -10,22 +10,22 @@ RSpec.describe CommentPolicy do
 
   context 'для гостя' do
     let(:user) { nil }
-    it { is_expected.to forbid_actions(%i[create? destroy?]) }
+    it { is_expected.to forbid_actions(%i[create destroy]) }
   end
 
   context 'для автора коммента' do
     let(:user) { author }
-    it { is_expected.to permit_actions(%i[create? destroy?]) }
+    it { is_expected.to permit_actions(%i[create destroy]) }
   end
 
   context 'для чужого пользователя' do
     let(:user) { other }
-    it { is_expected.to permit_action(:create?) }
-    it { is_expected.to forbid_action(:destroy?) }
+    it { is_expected.to permit_action(:create) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
   context 'для админа' do
     let(:user) { admin }
-    it { is_expected.to permit_actions(%i[create? destroy?]) }
+    it { is_expected.to permit_actions(%i[create destroy]) }
   end
 end

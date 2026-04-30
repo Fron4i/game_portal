@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ApplicationPolicy do
   subject { described_class.new(user, :record) }
 
-  let(:default_actions) { %i[index? show? create? new? update? edit? destroy?] }
+  let(:default_actions) { %i[index show create new update edit destroy] }
 
   context 'для гостя' do
     let(:user) { nil }
