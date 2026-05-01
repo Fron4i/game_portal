@@ -18,7 +18,7 @@ module ApplicationHelper
     return unless record.cover.attached?
 
     image = if record.cover.blob.content_type == "image/svg+xml"
-              record.cover
+              rails_blob_path(record.cover, disposition: :inline)
             else
               record.cover.variant(resize_to_fill: size)
             end
