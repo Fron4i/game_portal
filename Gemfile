@@ -14,6 +14,8 @@ gem "bootsnap", require: false
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 gem "devise"
+gem "rails-i18n"
+gem "devise-i18n"
 gem "pundit"
 gem "sidekiq"
 gem "redis", "~> 5"
